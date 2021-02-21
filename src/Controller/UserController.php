@@ -45,5 +45,13 @@ class UserController extends AbstractController
         ]);
     }
 
-    
+    /**
+     * @Route("/list", name="list", methods={"GET"})
+     */
+    public function List()
+    {
+        $users = $this->getDoctrine()->getRepository(Users::class)->findAll();
+
+        return $this->json($users);
+    }
 }
